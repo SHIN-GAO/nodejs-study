@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>report</title>
-  </head>
-  <body>
-    <div id="app">hello world</div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Access-Control-Allow-Origin" content="*">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>report</title>
+</head>
+
+<body>
+  <div id="app">
+    <form action="/api/vi/records" method="post">
+      name:
+      <input type="text" name="name"> age:
+      <input type="text" name="age">
+      <input type="submit" value="submit">
+    </form>
+  </div>
+</body>
+
 </html>
