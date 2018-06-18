@@ -68,7 +68,7 @@ app.post('/upload', upload.single('logo'), (req, res) => {
 })*/
 
 //中间件
-app.use((req,res,next)=> {
+/*app.use((req,res,next)=> {
     console.log('first middleware');
     next();
     console.log('first middleware after');
@@ -79,6 +79,11 @@ app.use((req,res,next)=> {
 })
 app.get('/', (req, res, next) => {
     res.send('ok');
-})
+})*/
+
+let indexRouter = require('./routes/index');
+let userRouter = require('./routes/users')
+app.use('/', indexRouter);
+app.use('/users', userRouter);
 app.listen(3000);
 console.log('listening to port 3000')
