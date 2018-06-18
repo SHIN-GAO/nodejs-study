@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
+/*const bodyParser = require('body-parser');
 const fs = require('fs');
 const multer = require('multer')
 var createFolder = function (folder) {
@@ -44,10 +44,13 @@ app.get('/ab?cd', (req, res) => {
     res.send('ab?cd');
 });
 app.get('/form/:name', (req, res) => {
-    let person = req.params.name;
+    let person = {age: 29,name : 'Shin', hobbies: ['eating','sleeping']};
     res.render('form', {
         person: person
     })
+});
+app.get('/about', (req, res) => {
+    res.render('about')
 });
 app.get('/', (req, res) => {
     console.dir(req.query);
@@ -62,5 +65,20 @@ app.post('/upload', upload.single('logo'), (req, res) => {
     res.send({
         'ret_code': 0
     });
+})*/
+
+//中间件
+app.use((req,res,next)=> {
+    console.log('first middleware');
+    next();
+    console.log('first middleware after');
+})
+app.use((req,res,next)=> {
+    console.log('sencond middleware');
+    res.send('ok');
+})
+app.get('/', (req, res, next) => {
+    res.send('ok');
 })
 app.listen(3000);
+console.log('listening to port 3000')
